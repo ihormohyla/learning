@@ -17,10 +17,16 @@ define(
         return defineComponent(SecondComponent);
 
         function SecondComponent(){
+            this.changeMode = function(data){
+                
+            };
+
 
             this.after('initialize', function(){
-
-                 this.on("changeMode");
+                 this.on("changeMode", function(event, data){
+                     console.log(data);
+                     this.changeMode(data);
+                 });
 
             });
         }
